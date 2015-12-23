@@ -2,6 +2,7 @@
 from pydrive.drive import GoogleDrive
 from pydrive.auth import GoogleAuth
 import csv
+import os.path
 
 print("authenticating to google")
 
@@ -22,17 +23,32 @@ def read_from_csv(filename):
             rows.append(row)
     return rows
 
+def check_for_image(filename, path):
+    return os.path.isfile(path + filename)
+
+def download_image(gid, filename, path):
+    print("downloading: " + filename + " - " + gid)
+    drivefile = drive.CreateFile({'id': gid})
+    drivefile.GetContentFile(path + filename)
+
+def download_image_set(csv_filename, img_path):
+    images = read_from_csv(csv_filename)
+    print("csv data loaded")
+
+    for img in images:
+        filename = img[0]
+        gid = img[1]
+        path = img_path
+
+        if not check_for_image(filename, path):
+            download_image(gid, filename, path)
+
 # load data from csv
 CSV_DX = './img-dx.csv'
 CSV_TS = './img-ts.csv'
+IMG_DX_PATH= './img/dx/'
+IMG_TS_PATH= './img/ts/'
 
-img_dx = read_from_csv(CSV_DX)
-img_ts = read_from_csv(CSV_TS)
-
-print("csv data loaded")
-
-print("retrieving metadata")
-imgtest = drive.CreateFile({'id': img_ts[0][1]})
-
-print("downloading data")
-imgtest.GetContentFile(img_ts[0][0])
+# import as interactive script to download
+# import `img_download`
+# download_image_set(CSV_TS, IMG_TS_PATH)
