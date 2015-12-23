@@ -1,3 +1,7 @@
+img/ts/*.png
+img/dx/*.png
+client_secrets.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
