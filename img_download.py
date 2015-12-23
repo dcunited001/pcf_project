@@ -1,6 +1,18 @@
 #!/usr/bin/python3
-from pydrive.drive import GoogleDrive as gdrive
+from pydrive.drive import GoogleDrive
+from pydrive.auth import GoogleAuth
 import csv
+
+print("authenticating to google")
+
+gauth = GoogleAuth()
+gauth.LocalWebserverAuth()
+
+print("you have been authenticated")
+
+drive = GoogleDrive(gauth)
+
+print("connected to google drive")
 
 def read_from_csv(filename):
     rows = []
@@ -17,4 +29,10 @@ CSV_TS = './img-ts.csv'
 img_dx = read_from_csv(CSV_DX)
 img_ts = read_from_csv(CSV_TS)
 
-print(img_dx[0])
+print("csv data loaded")
+
+print("retrieving metadata")
+imgtest = drive.CreateFile({'id': img_ts[0][1]})
+
+print("downloading data")
+imgtest.GetContentFile(img_ts[0][0])
