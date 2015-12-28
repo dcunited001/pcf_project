@@ -48,7 +48,3 @@ CSV_DX = './img-dx.csv'
 CSV_TS = './img-ts.csv'
 IMG_DX_PATH= './img/dx/'
 IMG_TS_PATH= './img/ts/'
-
-# import as interactive script to download
-# import `img_download`
-# download_image_set(CSV_TS, IMG_TS_PATH)
