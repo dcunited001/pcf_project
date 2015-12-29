@@ -249,7 +249,7 @@ used to evaluate prognosis for prostate cancer patients.
 **anaplasia** - cells lost the morpholgoical characteristics of mature
   cells.  anaplastic nuclei are variable and bizarre in size and
   shape.  the chromatin is coarse and clumped.  nuclei can be massive. 
-  
+
 anaplasia should translate into enlarged nuclei with respect to the
 average and they should have greater color variation from h&e stain,
 due to chromatin clumping
@@ -335,7 +335,7 @@ TS samples are where FGA numbers came from.
 - oxidative stress results in molecular damage to DNA, proteins and
   lipids in the cell. this happens when the balance b/w ROS and
   antioxidants is lost.
-- some studies have shown that 
+- some studies have shown that
 
 ## Resources
 
