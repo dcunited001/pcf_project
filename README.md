@@ -248,7 +248,7 @@ used to evaluate prognosis for prostate cancer patients.
 
 **anaplasia** - cells lost the morpholgoical characteristics of mature
   cells.  anaplastic nuclei are variable and bizarre in size and
-  shape.  the chromatin is coarse and clumped.  nuclei can be massive. 
+  shape.  the chromatin is coarse and clumped.  nuclei can be massive.
 
 anaplasia should translate into enlarged nuclei with respect to the
 average and they should have greater color variation from h&e stain,
@@ -365,13 +365,13 @@ TS samples are where FGA numbers came from.
 
 ### Videos
 
-[RPI Digital Image Processing Playlist (2015)](https://www.youtube.com/watch?v=UhDlL-tLT2U&list=PLuh62Q4Sv7BUf60vkjePfcOQc8sHxmnDX)
-[Morphological Image Processing](https://www.youtube.com/watch?v=IcBzsP-fvPo)
-[EGGN 510 (from School of Evil)](https://www.youtube.com/watch?v=rbY-JRQEDUU&list=PLyED3W677ALNv8Htn0f9Xh-AHe1aZPftv)
+- [RPI Digital Image Processing Playlist (2015)](https://www.youtube.com/watch?v=UhDlL-tLT2U&list=PLuh62Q4Sv7BUf60vkjePfcOQc8sHxmnDX)
+- [Morphological Image Processing](https://www.youtube.com/watch?v=IcBzsP-fvPo)
+- [EGGN 510 (from School of Evil)](https://www.youtube.com/watch?v=rbY-JRQEDUU&list=PLyED3W677ALNv8Htn0f9Xh-AHe1aZPftv)
 
 ### Resources
 
-[OpenCV Sitching Pipeline](http://docs.opencv.org/2.4/modules/stitching/doc/introduction.html)
+- [OpenCV Sitching Pipeline](http://docs.opencv.org/2.4/modules/stitching/doc/introduction.html)
 
 ### Notes from OSX
 
