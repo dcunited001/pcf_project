@@ -20,6 +20,25 @@ is run on the host OS
 Run `python -im img_download` to load the `img_download` module.
 Then run `download_image_set(CSV_TS, IMG_TS_PATH)` to begin downloading.
 
+### Configuring the TensorFlow
+
+#### Download the images
+
+
+
+### Starting the TensorFlow Project
+
+
+
+
+#### Visualizing the graph with TensorBoard
+
+```
+python tensorflow/tensorboard/tensorboard.py --logdir=./log
+```
+
+### Documentation
+
 ### Problems
 
 #### visualizing layers of network
@@ -64,7 +83,16 @@ i think the blue color of the DNA has something to do with this.
 darker blue == more fragmented/damaged DNA.  it may not be a
 strong correlation though
 
-#### dealing with disparate methodologies
+#### dealing with disparate methodologies (DX/TS)
+
+In the TS images, the average fragmented DNA will be slightly higher,
+across the board.  In the DX images, the average fragmented DNA should
+be much lower, especially in samples where fragmented DNA is not a
+problem.  That is, the skew of fragmented DNA in DX images will tend
+to be more normal.  And FGA will usually only be higher in images that
+actually have FGA problems.
+
+Therefore, 
 
 
 #### processing neural network to score
@@ -74,6 +102,217 @@ need to be capable of running in a single pipeline to score
 
 #### macro features?
 
+
+
+## Useful Techniques
+
+
+- use histogram and identify the background to normalize the data
+
+
+
+- Sholl analysis?
+- Breast Cancer paper used 3 categories of feature sets: Morphology,
+  Intensity, Texture)
+- Also used RGB => YUV Color Detection to ID nuclei with H&E stain
+- morphology (erosion on filtered images to ID circles?)
+- transform to HSV (YUV) color space and filter
+- chop images into smaller images in order to train faster
+- how to create & persist maps that denote transformations applied to
+  source images
+- how to filter out erroneous shapes (dark blobs & streaks)
+
+#### SIFT
+
+- Scale Invariant Feature Transform
+- no GPU implementation in OpenCV
+
+#### SURF
+
+- similar to sift, mostly as accurate, but different implementation.
+- available in OpenCV
+- GPU implementation available in OpenCV
+
+#### FRST
+
+[Automatic Nuclei Segmentation (Breast Cancer)](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0070221)
+
+FRST was used in this study. Notes:
+
+Figure 3. Marker imposition and watershed segmentation for nuclei
+segmentation.  Prior to applying the FRST the image is preprocessed
+with color unmixing and morphological operations (n = 10). The set of
+radii for the FRST is R = (10, 11,…,20). Note: the markers and
+watershed ridges (given in green in the figure) were dilated by one
+pixel for better visualization. A) Original image. B) Hematoxylin
+channel. C) Pre-processed image (hematoxylin channel processed with
+series of morphological operations). D) Fast radial symmetry transform
+(FRST). E) FRST foreground and background markers. F) Watershed
+segmentation with FRST markers. G) Regional minima foreground and
+background markers. H) Watershed segmentation with regional minima
+markers.
+
+#### Gabor Filters
+
+- useful for edge detection
+
+
+## Notes
+
+### High FGA Samples
+
+#### 33088 = 0.72
+
+large growths visible in both TS/DX images. higher density of cell
+nuclei and altered nuclei distribution is visible in both.
+
+#### 21157 = 0.66
+
+regions of altered growth rates are visible in both images.  the
+nuclei of apparently cancerous cells seem much larger than other
+nuclei in both samples, but especially in the TS frozen sample.
+
+#### 47756 = 0.36
+
+this the nuclei in DS look to vary considerably in blue color.
+the TS image looks like the sample was stretched.
+
+#### 10549 = 0.58
+
+#### 30333 = 0.54
+
+#### 73674 = 0.45
+
+#### 81026 = 0.41
+
+#### 30003 = 0.4
+
+#### 77274 = 0.39
+
+#### 35897 = 0.36
+
+#### 47756 = 0.36
+
+#### 59688 = 0.34
+
+#### 30192 = 0.33
+
+### Low FGA Samples
+
+#### 73797 = 0.06
+
+DX sample is almost clear.  no pink staining, as in TS image.  Yet,
+all the nuclei in both images seem to be enlarged.  you can still see
+the various high-growth regions in TS.
+
+this one (and the lighter images) look like there's not enough of the
+pink stain being used or something.  because there's almost no pink in
+the image at all.
+
+#### 75999 = 0.05
+
+the H&E staining doesn't look consistent in the TS images, the nuclei
+are barely visible. almost like not enough H&E was used. though there
+was plenty of the pink stain.  The DS image contains lots of
+outgrowths with spaces in the middle
+
+### Gleason Grading System
+
+used to evaluate prognosis for prostate cancer patients.
+
+**Carcinoma differentiation** - refers to how fast a sample of cancer
+  tissue would appear to grow
+
+**anaplasia** - cells lost the morpholgoical characteristics of mature
+  cells.  anaplastic nuclei are variable and bizarre in size and
+  shape.  the chromatin is coarse and clumped.  nuclei can be massive. 
+  
+anaplasia should translate into enlarged nuclei with respect to the
+average and they should have greater color variation from h&e stain,
+due to chromatin clumping
+
+A pathologist microscopically examines the biopsy specimen for certain
+"Gleason" patterns. These Gleason patterns are associated with the
+following features:
+
+#### Pattern 1
+
+The cancerous prostate closely resembles normal prostate tissue. The
+glands are small, well-formed, and closely packed. This corresponds to
+a well differentiated carcinoma.
+
+#### Pattern 2
+
+The tissue still has well-formed glands, but they are larger and have
+more tissue between them, implying that the stroma has increased. This
+also corresponds to a moderately differentiated carcinoma.
+
+#### Pattern 3
+
+The tissue still has recognizable glands, but the cells are darker. At
+high magnification, some of these cells have left the glands and are
+beginning to invade the surrounding tissue or having an infiltrative
+pattern. This corresponds to a moderately differentiated carcinoma.
+
+#### Pattern 4
+
+The tissue has few recognizable glands. Many cells are invading the
+surrounding tissue in neoplastic clumps. This corresponds to a poorly
+differentiated carcinoma.
+
+#### Pattern 5
+
+The tissue does not have any or only a few recognizable glands. There
+are often just sheets of cells throughout the surrounding tissue. This
+corresponds to an anaplastic carcinoma.  In the present form of the
+Gleason system, prostate cancer of Gleason patterns 1 and 2 are rarely
+seen. Gleason pattern 3 is by far the most common.
+
+### Damage to Freezing on DNA
+
+TS samples are where FGA numbers came from.
+
+#### observations in differences b/w TS & DX images
+
+- looks like there are lots of spaces in the frozen TS images. probably
+  places where the cell membrane broke and larger ice crystals formed.
+- it also looks like the cells & cell nuclei are generally much closer together
+  in high-growth regions in the cancer cells with higher FGA
+
+#### questions
+
+- how are TS samples frozen and stored?
+- are TS samples unthawed before micrograph?
+- how consistent is the methodology here?
+- is oxidative stress more likely to happen in flash frozen samples?
+- does oxidative stress cause increase in double strand breaks?  YES
+- how prevalent is this oxidative stress in TS samples?
+
+#### Ice Crystals
+
+- ice crystal are formed that can cause cell membrane rupture
+- rapid freezing results in ice crystal formation in the outer parts of cells (nucleus?)
+- slow cooling allows water to leach out, reducing ice crystal formation
+  - however, it leads to cell rupture due to an imbalance in osmotic pressure
+
+#### Freeze Concentrantion
+
+- Ice crystals can cause the salts/proteins to become concentrated
+- this impacts the stability of proteins and denatures/conglomerates them
+- causes unfolding at ice
+
+#### Oxidative Stress
+
+- it's suggested that ice crystal induced damage to organelle
+  structures leads to activation of rescue systems associated with
+  energy generation
+- this results in subsequence increase in oxidative stress and
+  production of ROS (free radicals produced as by-products of REDOX
+  reactions)
+- oxidative stress results in molecular damage to DNA, proteins and
+  lipids in the cell. this happens when the balance b/w ROS and
+  antioxidants is lost.
+- some studies have shown that 
 
 ## Resources
 
@@ -139,12 +378,6 @@ math ideas i’ve thought of independently:
 - image differencing….?? maybe not
   - i thought this would highlight edges, but in a different way i believe
 
-useful techniques:
-- chop images into smaller images in order to train faster
-- how to create & persist maps that denote transformations applied to source images
-- use histogram and identify the background to normalize the data
-- how to filter out erroneous shapes (dark blobs & streaks)
-
 SIFT (scale invariant feature transform)
 - OpenCV http://docs.opencv.org/master/da/df5/tutorial_py_sift_intro.html#gsc.tab=0
 - how to add op types for tensorflow?
@@ -161,6 +394,9 @@ SIFT (scale invariant feature transform)
 - but what about other features of the cells?  can they predict fragmentation?
   - or are should features be ignored because they are not causitive?
 
+- instead of relying solely on the FGA% for the training set,
+  - can i assess features in the image and attach my confidence to that number for each set?
+
 good questions:
 - how would a biological neural network do Fourier Transform?
 - how do the DX and TS images vary?
@@ -175,8 +411,6 @@ class.
 just want to notate some techniques and topics i may want to revisit for my project.
 really needed to know this stuff a week ago.  now i'm backed up on lectures to watch AND
 have to write a bunch of code in python, which i've never really used before.
-
-
 
 part 4 - histograms and point operations (filters)
 
