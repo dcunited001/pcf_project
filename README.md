@@ -37,6 +37,8 @@ Then run `download_image_set(CSV_TS, IMG_TS_PATH)` to begin downloading.
 python tensorflow/tensorboard/tensorboard.py --logdir=./log
 ```
 
+example of CIFAR10 [graph setup](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/models/image/cifar10/cifar10.py) here.
+
 ### Documentation
 
 ### Problems
@@ -106,6 +108,10 @@ need to be capable of running in a single pipeline to score
 
 ## Useful Techniques
 
+
+- quantification of histochemical staining by color deconvolution
+  - [fiji plugin](http://fiji.sc/Colour_Deconvolution) for
+    [2001 Paper](https://www.ncbi.nlm.nih.gov/pubmed/11531144)
 
 - use histogram and identify the background to normalize the data
 
@@ -335,7 +341,27 @@ TS samples are where FGA numbers came from.
 
 ### Papers
 
-[Efficient Graph-Based Image Segmentation](https://www.cs.cornell.edu/~dph/papers/seg-ijcv.pdf)
+#### Methodological Resources
+
+- [(Very Good) Automatic Nuclei Segmentation in H&E Stained Breast Cancer Histopathology Images](https://www.ncbi.nlm.nih.gov/pubmed/23922958)
+
+#### Other Bio/Med + CS Papers
+
+- [Quantification of Histochemical Stain by Color Deconvolution](https://www.ncbi.nlm.nih.gov/pubmed/11531144)
+- [Mitosis Detection in Breast Cancer Cells using DNN (2013)](http://www.ncbi.nlm.nih.gov/pubmed/24579167)
+- [Assessment of algorithms for mitosis detection in breast cancer histopathology images.](http://www.ncbi.nlm.nih.gov/pubmed/25547073)
+- [Deep convolutional neural networks for annotating gene expression patterns in the mouse brain](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4432953/)
+- [Predicting DNA Fragmentation (kinda related)](http://www.pnas.org/content/108/51/20796.abstract)
+- [Size invariant circle detection - Circle Hough Transform](http://www.sciencedirect.com/science/article/pii/S0262885698001607)
+
+#### ImageNet
+
+[Google's 2014 ImageNet Challenge](http://deeplearning.net/2014/09/19/googles-entry-to-imagenet-2014-challenge/)
+[AlexNet implementation with Theano](https://github.com/uoguelph-mlrg/theano_alexnet)
+
+#### Misc CV
+
+- [Efficient Graph-Based Image Segmentation](https://www.cs.cornell.edu/~dph/papers/seg-ijcv.pdf)
 
 ### Videos
 
@@ -356,26 +382,15 @@ I'm planning on exploring machine learning and image recognition in this
 repo.  Some of these projects are just tutorials that I'm walking
 through and others will be exploratory projects.
 
-[Great list of ML links & papers](https://github.com/robertsdionne/neural-network-papers)
-[TensorFlow tuts converted to Jupyter Notebooks](http://nbviewer.ipython.org/github/MarkDaoust/tensorflow/blob/notebooks/tensorflow/g3doc/tutorials/index.ipynb)
-[Install CUDA on Docker for GPU access](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
+- [Great list of ML links & papers](https://github.com/robertsdionne/neural-network-papers)
+- [TensorFlow tuts converted to Jupyter Notebooks](http://nbviewer.ipython.org/github/MarkDaoust/tensorflow/blob/notebooks/tensorflow/g3doc/tutorials/index.ipynb)
+- [Install CUDA on Docker for GPU access](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
 
-ImageNet Competition
-[Google's 2014 ImageNet Challenge](http://deeplearning.net/2014/09/19/googles-entry-to-imagenet-2014-challenge/)
-[AlexNet implementation with Theano](https://github.com/uoguelph-mlrg/theano_alexnet)
+- [Biological Imaging Software Tools (paper)](Biological Imaging Software Tools)
+- [Kitware (ITK/VTK)](http://www.kitware.com/opensource/opensource.html)
+- [ITK Applications](http://www.itk.org/ITK/resources/applications.html)
 
-
-[Mitosis Detection in Breast Cancer Cells using DNN (2013)](http://www.ncbi.nlm.nih.gov/pubmed/24579167)
-[Assessment of algorithms for mitosis detection in breast cancer histopathology images.](http://www.ncbi.nlm.nih.gov/pubmed/25547073)
-[Deep convolutional neural networks for annotating gene expression patterns in the mouse brain](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4432953/)
-
-[Biological Imaging Software Tools (paper)](Biological Imaging Software Tools)
-[Kitware (ITK/VTK)](http://www.kitware.com/opensource/opensource.html)
-[ITK Applications](http://www.itk.org/ITK/resources/applications.html)
-
-[Cell Profiler (imageJ - cell image analysis software)](http://www.cellprofiler.org/)
-[Predicting DNA Fragmentation (kinda related)](http://www.pnas.org/content/108/51/20796.abstract)
-[Size invariant circle detection - Circle Hough Transform](http://www.sciencedirect.com/science/article/pii/S0262885698001607)
+- [Cell Profiler (imageJ - cell image analysis software)](http://www.cellprofiler.org/)
 
 ### PCF TODO
 
