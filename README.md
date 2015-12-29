@@ -216,6 +216,15 @@ are barely visible. almost like not enough H&E was used. though there
 was plenty of the pink stain.  The DS image contains lots of
 outgrowths with spaces in the middle
 
+### Prostate Cancer
+
+[image identifying tumor cells and tumor stroma](http://www.proteinatlas.org/images_dictionary/prostate_cancer__3__gleason_8__overview.jpg)
+
+[Stroma is connective tissue](https://en.wikipedia.org/wiki/Stromal_cell)
+and can be involved in cancer, particularly skin cancer.
+
+[normal prostate cells w/ gland identification](http://www.proteinatlas.org/learn/dictionary/normal/prostate)
+
 ### Gleason Grading System
 
 used to evaluate prognosis for prostate cancer patients.
