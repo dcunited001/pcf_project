@@ -135,6 +135,8 @@ need to be capable of running in a single pipeline to score
 
 #### FRST
 
+useful for detecting circular objects
+
 [Automatic Nuclei Segmentation (Breast Cancer)](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0070221)
 
 FRST was used in this study. Notes:
@@ -151,6 +153,12 @@ series of morphological operations). D) Fast radial symmetry transform
 segmentation with FRST markers. G) Regional minima foreground and
 background markers. H) Watershed segmentation with regional minima
 markers.
+
+#### SPP - Spatial Pyramid Pooling
+
+useful for building neural networks with variously sized images as
+input.  the input scale problem first becomes an issue at the fully
+connected layers and is not a problem at the convolutional layers
 
 #### Gabor Filters
 
