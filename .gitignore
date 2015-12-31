@@ -61,3 +61,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# i have no idea why my gitignore global is not working.  
+# - i have it in my .gitconfig ... ugh
+.idea/
