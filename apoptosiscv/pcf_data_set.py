@@ -9,3 +9,4 @@ def read_training_samples(csvname):
             samples.append({'id': row[0], 'fga': row[1]})
     return rows
 
+
