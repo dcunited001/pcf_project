@@ -25,4 +25,9 @@ def read_training_samples(csvname):
             samples.append({'id': row[0], 'fga': row[1]})
     return samples
 
+def read_image_metadata(imgtype, path):
+    samples = []
+    files = filter(lambda f: os.path.isfile(os.path.join(path, f)), os.listdir(path))
+    png_images = [f for f in files if f.endswith('png')]
+    return png_images
 
