@@ -104,6 +104,46 @@ need to be capable of running in a single pipeline to score
 
 #### macro features?
 
+## More misc notes
+
+### TODO: reorganize documentation
+
+One of the major issues with designing an algorithm to predict FGA is
+to base your design on visual features which can be shown to be
+causatively correlate to FGA.  that is, the visual & morphological
+patterns of prostate cancer cells are likely mostly multicollinear
+with FGA.  But because of that, will skew the algorithm's predictions
+for some kinds of cases.
+
+Instead, you could design a fairly accurate algorithm that looks
+macroscopic cell features typical of prostate cancer and erroneously
+assume that cancer cells which exhibit these features probably have
+higher FGA.  that is, macroscopic as in higher-level visual patterns
+of cells.  An algorithm like this might be fairly accurate, but
+doesn't accurately infer FGA.  Good test data for an algorithm like
+this would contain a few cases of advanced prostate cancer, which
+doesn't have a high level of FGA.  If the algorithm performs well
+here, perhaps it has identified visual features which are indicative
+of high FGA.
+
+Additionally, i found it a bit hard to find information about studies
+on FGA, so the precise definition of that term was a bit nebulous to
+me.  Is this number based on the count of mutation events in DNA that
+has been sequenced and, if so, does it take the affected area of the
+mutation events on the genome into account?  if it's based on a count
+a mutation events, is the FGA number based on major, partial
+chromosome-shifting events?  Or is FGA based on sequencing DNA and
+represents the total area of mutated sequences?
+
+TODO: describe how an increase in the local rate of mutation within a
+cellular nucleus can drive more mutations. this is a good example
+of the probablistic programming model for genetics. 
+
+TODO: describe how subsequent patterns of gene expression are highly
+variable when a cell undergoes a high rate of mutation.  in order to
+understand how a cell's mutations affect it's gene expression, one has to
+understand the patterns of gene expression during the intermediate states
+and how the order of mutations would change this.  
 
 
 ## Useful Techniques
